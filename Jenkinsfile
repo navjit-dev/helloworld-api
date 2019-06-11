@@ -14,11 +14,13 @@ pipeline {
       }
     }
     stage('Test') {
+      
       when {
         beforeAgent true
         branch 'test'
       }
       steps {
+        
         copyArtifacts projectName: '../helloworld-api/development'
         gateConsumesArtifact file: 'application.sh'
       }
